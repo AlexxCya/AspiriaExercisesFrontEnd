@@ -1,0 +1,14 @@
+
+ <mat-drawer-container autosize style="position: absolute;right: 0px;left: 0px;bottom: 0px;top: 0px;">
+  <mat-drawer #drawer mode="side">
+    <a mat-button [routerLink]="['/toy']">Exercise 1</a><br/>
+    <a mat-button [routerLink]="['/food']">Exercise 2</a><br/>
+    <a mat-button (click)="logout()">Logout</a>
+  </mat-drawer>
+  <div>
+    <button (click)="drawer.toggle()" mat-raised-button color="basic">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

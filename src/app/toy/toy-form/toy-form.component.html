@@ -1,0 +1,40 @@
+<h mat-dialog-title>{{ toy !=null ? 'Edit Toy' : 'New Toy' }}</h>
+<div mat-dialog-content>
+    <form [formGroup]="toyForm" (ngSubmit)="toy!=null ? edit() : add()"> 
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="name" matInput placeholder="Name">
+                <mat-error *ngIf="toyForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="description" matInput placeholder="Description">
+                <mat-error *ngIf="toyForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+         <p>
+            <mat-form-field>
+                <input type="text" formControlName="age" matInput placeholder="Age">
+                <mat-error *ngIf="toyForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="company" matInput placeholder="Company">
+                <mat-error *ngIf="toyForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" formControlName="price" matInput placeholder="Price">
+                <mat-error *ngIf="toyForm.invalid">{{ getErrorByField() }}</mat-error>
+            </mat-form-field>
+        </p> 
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary"  [disabled]="!toyForm.valid"
+    (click)="toy!=null ? edit() : add()">Save</button>
+</div>
